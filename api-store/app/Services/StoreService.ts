@@ -2,12 +2,10 @@ import Stor from "App/Models/Stor";
 import { IStore } from "Contracts/interface/IStore";
 import {uuid} from "uuidv4";
 
-"bfg8hg8h-hghg7878-445hghgh"
-
 //Colocar a findMany(da query)
 
 export class StoreService {
-    private store: IStore[] = []    
+    private storee: IStore[] = []    
     
     async findAll(){
         return await Stor.all()
@@ -24,7 +22,7 @@ export class StoreService {
             ...store,
             id:uuid()
         }
-        this.store.push(StoreCreated)
+        this.storee.push(StoreCreated)
 
         const storeCriado = await Stor.create(StoreCreated)
         return storeCriado;
