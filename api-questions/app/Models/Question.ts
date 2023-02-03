@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
-
+import { BaseModel, beforeCreate, column } from '@ioc:Adonis/Lucid/Orm'
+import {uuid} from "uuidv4";
 export default class Question extends BaseModel {
   @column({ isPrimary: true })
   public id: string
@@ -12,16 +12,16 @@ export default class Question extends BaseModel {
   public question:string
 
   @column()
-  public alternativeA:string
+  public alternativea:string
 
   @column()
-  public alternativeB:string
+  public alternativeb:string
 
   @column()
-  public alternativeC:string
+  public alternativec:string
   
   @column()
-  public alternativeD:string
+  public alternatived:string
 
   @column()
   public correct:string  
@@ -34,4 +34,10 @@ export default class Question extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @beforeCreate()
+  public static async createUUID (model: Question){
+    model.id = uuid()
+  }
+  
 }
