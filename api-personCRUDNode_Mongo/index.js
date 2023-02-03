@@ -111,7 +111,7 @@ app.get('/', (req, res) => {
 
 mongoose
   .connect(
-    'mongodb+srv://bruna:<13032002>@apicluster.iifvlfq.mongodb.net/bancodaapi?retryWrites=true&w=majority',
+    'mongodb+srv://usuario:<senha>@apicluster.iifvlfq.mongodb.net/bancodaapi?retryWrites=true&w=majority',
   )
   .then(() => {
     console.log('Conectou ao banco!')
